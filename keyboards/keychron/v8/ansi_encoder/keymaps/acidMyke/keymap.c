@@ -57,11 +57,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL,              KC_LWIN,            KC_LALT,                                KC_SPC,                            MO(_FN1),      MO(_FN2),                         KC_SPC,                               KC_RALT,                                   KC_LEFT, KC_DOWN, KC_RGHT),
     // Function layer 1 (Home row numbers + F1-12 keys)
     [_FN1] = LAYOUT_ansi_69(
-        KC_GRV,  KC_F1,    KC_F2,    KC_F3,    KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,   _______,           KC_MPLY,
-        KC_TILD, KC_EXLM,  KC_AT,    RGB_HUI,  KC_HASH, KC_DLR,   KC_PERC,  KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,           _______,
+        KC_GRV,  KC_F1,    KC_F2,    KC_F3,    KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,   _______,          KC_MPLY,
+        KC_TILD, KC_EXLM,  KC_AT,    RGB_HUI,  KC_HASH, KC_DLR,   KC_PERC,  KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,          _______,
         KC_GRV,  KC_1,     KC_2,     KC_3,     KC_4,    KC_5,               KC_6,    KC_7,     KC_8,    KC_9,     KC_0,     KC_MINS,  KC_EQL,           _______,
-        _______,           _______,  _______,  _______, _______,  _______,  _______, NK_TOGG,  _______, _______,  _______,  _______,  _______, _______,
-        _______, _______,  _______,            _______,           _______,  _______,           _______,           _______,            _______, _______,  _______),
+        _______,           _______,  _______,  _______, _______,  _______,  _______, NK_TOGG,  _______, _______,  _______,  _______,  _______, KC_PGUP,
+        _______, _______,  _______,            _______,           _______,  _______,           _______,           _______,            KC_HOME, KC_PGDN,  KC_END),
     // Function layer 2 (RGB controls)
     [_FN2] = LAYOUT_ansi_69(
         KC_GRV,  KC_BRID,  KC_BRIU,  KC_TASK, KC_FLXP, RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          C(A(KC_F22)),
