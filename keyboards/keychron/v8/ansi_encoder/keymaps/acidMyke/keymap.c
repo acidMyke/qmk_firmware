@@ -73,6 +73,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [__MT] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [_FN1]   = {ENCODER_CCW_CW(KC_MPRV, KC_MNXT)},
     [_FN2]   = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-    [_FN3]   = {ENCODER_CCW_CW(RGB_SPI, RGB_SPD)}
+    [_FN3]   = {ENCODER_CCW_CW(RGB_SPD, RGB_SPI)}
 };
 #endif // ENCODER_MAP_ENABLE
