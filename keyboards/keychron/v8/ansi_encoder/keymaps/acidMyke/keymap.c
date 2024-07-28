@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______,  _______,  /*KC_NO*/ _______, /*KC_NO*/ _______,  _______, /*KC_NO*/ _______, /*KC_NO*/ _______,  /*KC_NO*/ _______, _______,  _______),
     // Function layer 2 (RGB controls)
     [_FN2] = LAYOUT_ansi_69(
-        KC_GRV,  KC_BRID,  KC_BRIU,  KC_TASK, KC_FLXP, RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          RGB_TOG,
+        KC_GRV,  KC_BRID,  KC_BRIU,  KC_TASK, KC_FLXP, RGB_VAD, RGB_VAI,  KC_MPRV, KC_MPLY, KC_MNXT, KC_MUTE,  KC_VOLD,  KC_VOLU,  _______,          C(A(KC_F22)),
         RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, _______,  _______, _______, _______, _______,  _______,  _______,  _______,          _______,
         _______, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           _______, _______, _______, _______,  _______,  _______,  _______,          _______,
         _______,           _______,  _______, _______, _______, _______,  _______, NK_TOGG, _______, _______,  _______,  _______,  _______, _______,
@@ -72,7 +72,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [__NMT] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [__MT] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [_FN1]   = {ENCODER_CCW_CW(KC_MPRV, KC_MNXT)},
-    [_FN2]   = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)},
-    [_FN3]   = {ENCODER_CCW_CW(RGB_SPD, RGB_SPI)}
+    [_FN2]   = {ENCODER_CCW_CW(C(S(KC_F22)), C(KC_F22))},
+    [_FN3]   = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI))}
 };
 #endif // ENCODER_MAP_ENABLE
