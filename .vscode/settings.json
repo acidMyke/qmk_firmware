@@ -7,7 +7,15 @@
         "**/.build": true,
         "**/*.hex": true,
         "**/*.bin": true,
-        "**/*.uf2": true
+        "**/*.uf2": true,
+        "[!k]*": true,
+        "keyboards/[!k]*": true,
+        "keyboards/k[!e]*": true,
+        "keyboards/ke[!y]*": true,
+        "keyboards/key[!c]*": true,
+        "keyboards/keyc[!h]*": true,
+        "keyboards/keychron/[!v]*": true,
+        "keyboards/keychron/v[!8]*": true
     },
     "files.associations": {
         "*.h": "c",
@@ -28,7 +36,5 @@
     "[json]": {
         "editor.formatOnSave": false
     },
-    "clangd.arguments": [
-        "--header-insertion=never"
-    ]
+    "clangd.arguments": ["--header-insertion=never"]
 }
