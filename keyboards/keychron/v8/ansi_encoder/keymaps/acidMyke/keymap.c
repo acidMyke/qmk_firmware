@@ -40,21 +40,42 @@ enum layers{
 #define KC_TASK LGUI(KC_TAB)
 #define KC_FLXP LGUI(KC_E)
 
+// Taps (Mod Tap & Layer Tap)
+
+#define MT_ESC MT(MOD_LCTL, KC_ESC)
+#define MT_A MT(MOD_LGUI, KC_A) // Pinky Key
+#define MT_S MT(MOD_LALT, KC_S)
+#define MT_D MT(MOD_LSFT, KC_D)
+#define MT_F MT(MOD_LCTL, KC_F) //Guide Key
+#define MT_G MT(MOD_LSFT, KC_G)
+
+#define MT_H MT(MOD_RSFT, KC_H)
+#define MT_J MT(MOD_RCTL, KC_J) //Guide Key
+#define MT_K MT(MOD_RSFT, KC_K)
+#define MT_L MT(MOD_RALT, KC_L)
+#define MT_SCLN MT(MOD_RGUI, KC_SCLN) // Pinky Key
+
+#define LT_C LT(_FN1,KC_C)
+#define LT_V LT(_FN2,KC_V)
+#define LT_B LT(_FN3,KC_B)
+#define LT_N LT(_FN2,KC_N)
+#define LT_M LT(_FN1,KC_M)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Home row mods disabled
     [__NMT] = LAYOUT_ansi_69(
-        TD(TD_GRV_TILD),     KC_1,    KC_2,    KC_3, KC_4,   KC_5, KC_6,     KC_7,     KC_8, KC_9,   KC_0,    KC_MINS, KC_EQL,  KC_BSPC,          KC_MUTE,
-        KC_TAB,              KC_Q,    KC_W,    KC_E, KC_R,   KC_T, KC_Y,     KC_U,     KC_I, KC_O,   KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,          KC_PSCR,
-        MT(MOD_LCTL,KC_ESC), KC_A,    KC_S,    KC_D, KC_F,   KC_G,           KC_H,     KC_J, KC_K,   KC_L,    KC_SCLN, KC_QUOT, KC_ENT,           KC_DEL,
-        TD(TD_SHIFT_CAPS),            KC_Z,    KC_X, KC_C,   KC_V, KC_B,     KC_B,     KC_N, KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
-        KC_LCTL,             KC_LWIN, KC_LALT,       KC_SPC,       MO(_FN1), MO(_FN2),       KC_SPC,          KC_RALT,          KC_LEFT, KC_DOWN, KC_RGHT),
+        TD(TD_GRV_TILD), KC_1,    KC_2,    KC_3, KC_4,   KC_5, KC_6,     KC_7,     KC_8, KC_9,   KC_0,    KC_MINS, KC_EQL,  KC_BSPC,          KC_MUTE,
+        KC_TAB,          KC_Q,    KC_W,    KC_E, KC_R,   KC_T, KC_Y,     KC_U,     KC_I, KC_O,   KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,          KC_PSCR,
+        KC_ESC,          KC_A,    KC_S,    KC_D, KC_F,   KC_G,           KC_H,     KC_J, KC_K,   KC_L,    KC_SCLN, KC_QUOT, KC_ENT,           KC_DEL,
+        KC_LSFT,                  KC_Z,    KC_X, KC_C,   KC_V, KC_B,     KC_B,     KC_N, KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
+        KC_LCTL,         KC_LWIN, KC_LALT,       KC_SPC,       MO(_FN1), MO(_FN2),       KC_SPC,          KC_RALT,          KC_LEFT, KC_DOWN, KC_RGHT),
     // Home row mods enabled
     [__MT] = LAYOUT_ansi_69(
-        TD(TD_GRV_TILD),     KC_1,              KC_2,              KC_3,              KC_4,              KC_5,          KC_6,          KC_7,          KC_8,              KC_9,              KC_0,              KC_MINS,              KC_EQL,   KC_BSPC,          KC_MUTE,
-        KC_TAB,              KC_Q,              KC_W,              KC_E,              KC_R,              KC_T,          KC_Y,          KC_U,          KC_I,              KC_O,              KC_P,              KC_LBRC,              KC_RBRC,  KC_BSLS,          KC_PSCR,
-        MT(MOD_LCTL,KC_ESC), MT(MOD_LGUI,KC_A), MT(MOD_LALT,KC_S), MT(MOD_LSFT,KC_D), MT(MOD_LCTL,KC_F), LT(_FN1,KC_G),                LT(_FN1,KC_H), MT(MOD_LCTL,KC_J), MT(MOD_LSFT,KC_K), MT(MOD_LALT,KC_L), MT(MOD_LGUI,KC_SCLN), KC_QUOT,  KC_ENT,           KC_DEL,
-        TD(TD_SHIFT_CAPS),                      KC_Z,              KC_X,              LT(_FN1,KC_C),     LT(_FN2,KC_V), LT(_FN3,KC_B), LT(_FN3,KC_B), LT(_FN2,KC_N),     LT(_FN1,KC_M),     KC_COMM,           KC_DOT,               KC_SLSH,  KC_RSFT, KC_UP,
-        KC_LCTL,             KC_LWIN,           KC_LALT,                              KC_SPC,                           MO(_FN1),      MO(_FN2),                         KC_SPC,                               KC_RALT,                        KC_LEFT, KC_DOWN, KC_RGHT),
+        TD(TD_GRV_TILD),   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,          KC_EQL,   KC_BSPC,          KC_MUTE,
+        KC_TAB,            KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,          KC_RBRC,  KC_BSLS,          KC_PSCR,
+        MT_ESC,            MT_A,    MT_S,    MT_D,    MT_F,    MT_G,             MT_H,    MT_J,    MT_K,    MT_L,    MT_SCLN, KC_QUOT, KC_ENT,                     KC_DEL,
+        TD(TD_SHIFT_CAPS),          KC_Z,    KC_X,    LT_C,    LT_V,    LT_B,    LT_B,    LT_N,    LT_M,    KC_COMM, KC_DOT,           KC_SLSH,  KC_RSFT, KC_UP,
+        _______,           _______, _______,          _______,          _______, _______,          _______,          _______,                    KC_LEFT, KC_DOWN, KC_RGHT),
     // Function layer 1 (Home row numbers + F1-12 keys)
     [_FN1] = LAYOUT_ansi_69(
         KC_GRV,  KC_F1,    KC_F2,    KC_F3,    KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,   _______,          KC_MPLY,
