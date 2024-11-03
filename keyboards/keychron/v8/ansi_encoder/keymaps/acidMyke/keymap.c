@@ -61,6 +61,26 @@ enum layers{
 #define LT_N LT(_FN2,KC_N)
 #define LT_M LT(_FN1,KC_M)
 
+// Combos
+enum combos {
+    FD_TAB,
+    JK_TAB,
+    FDS_ENTER,
+    JKL_ENTER
+};
+
+const uint16_t PROGMEM fd_combo[] = {MT_F, MT_D, COMBO_END};
+const uint16_t PROGMEM jk_combo[] = {MT_J, MT_K, COMBO_END};
+const uint16_t PROGMEM fds_combo[] = {MT_F, MT_D, MT_S, COMBO_END};
+const uint16_t PROGMEM jkl_combo[] = {MT_J, MT_K, MT_L, COMBO_END};
+
+combo_t key_combos[] = {
+    [FD_TAB] = COMBO(fd_combo, KC_TAB),
+    [JK_TAB] = COMBO(jk_combo, KC_TAB),
+    [FDS_ENTER] = COMBO(fds_combo, KC_ENT),
+    [JKL_ENTER] = COMBO(jkl_combo, KC_ENT)
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Home row mods disabled
     [__NMT] = LAYOUT_ansi_69(
