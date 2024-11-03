@@ -65,20 +65,32 @@ enum layers{
 enum combos {
     FD_TAB,
     JK_TAB,
-    FDS_ENTER,
-    JKL_ENTER
+    GF_BSPC,
+    HJ_BSPC,
+    FDS_ENT,
+    JKL_ENT,
+    GFD_DEL,
+    HJK_DEL
 };
 
 const uint16_t PROGMEM fd_combo[] = {MT_F, MT_D, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {MT_J, MT_K, COMBO_END};
+const uint16_t PROGMEM gf_combo[] = {MT_G, MT_F, COMBO_END};
+const uint16_t PROGMEM hj_combo[] = {MT_H, MT_J, COMBO_END};
 const uint16_t PROGMEM fds_combo[] = {MT_F, MT_D, MT_S, COMBO_END};
 const uint16_t PROGMEM jkl_combo[] = {MT_J, MT_K, MT_L, COMBO_END};
+const uint16_t PROGMEM gfd_combo[] = {MT_G, MT_F, MT_D, COMBO_END};
+const uint16_t PROGMEM hjk_combo[] = {MT_H, MT_J, MT_K, COMBO_END};
 
 combo_t key_combos[] = {
     [FD_TAB] = COMBO(fd_combo, KC_TAB),
     [JK_TAB] = COMBO(jk_combo, KC_TAB),
-    [FDS_ENTER] = COMBO(fds_combo, KC_ENT),
-    [JKL_ENTER] = COMBO(jkl_combo, KC_ENT)
+    [GF_BSPC] = COMBO(gf_combo, KC_BSPC),
+    [HJ_BSPC] = COMBO(hj_combo, KC_BSPC),
+    [FDS_ENT] = COMBO(fds_combo, KC_ENT),
+    [JKL_ENT] = COMBO(jkl_combo, KC_ENT),
+    [GFD_DEL] = COMBO(gfd_combo, KC_DEL),
+    [HJK_DEL] = COMBO(hjk_combo, KC_DEL)
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
