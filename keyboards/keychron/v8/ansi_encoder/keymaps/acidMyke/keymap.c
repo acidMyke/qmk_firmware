@@ -70,7 +70,12 @@ enum combos {
     FDS_ENT,
     JKL_ENT,
     GFD_DEL,
-    HJK_DEL
+    HJK_DEL,
+    VCX_PASTE,
+    VC_PASTE,
+    CX_COPY,
+    XZ_CUT,
+    
 };
 
 const uint16_t PROGMEM fd_combo[] = {MT_F, MT_D, COMBO_END};
@@ -82,6 +87,11 @@ const uint16_t PROGMEM jkl_combo[] = {MT_J, MT_K, MT_L, COMBO_END};
 const uint16_t PROGMEM gfd_combo[] = {MT_G, MT_F, MT_D, COMBO_END};
 const uint16_t PROGMEM hjk_combo[] = {MT_H, MT_J, MT_K, COMBO_END};
 
+const uint16_t PROGMEM vcx_combo[] = {LT_V, LT_C, KC_X, COMBO_END};
+const uint16_t PROGMEM vc_combo[] = {LT_V, LT_C, COMBO_END};
+const uint16_t PROGMEM cx_combo[] = {LT_C, KC_X, COMBO_END};
+const uint16_t PROGMEM xz_combo[] = {KC_X, KC_Z, COMBO_END};
+
 combo_t key_combos[] = {
     [FD_TAB] = COMBO(fd_combo, KC_TAB),
     [JK_TAB] = COMBO(jk_combo, KC_TAB),
@@ -90,7 +100,11 @@ combo_t key_combos[] = {
     [FDS_ENT] = COMBO(fds_combo, KC_ENT),
     [JKL_ENT] = COMBO(jkl_combo, KC_ENT),
     [GFD_DEL] = COMBO(gfd_combo, KC_DEL),
-    [HJK_DEL] = COMBO(hjk_combo, KC_DEL)
+    [HJK_DEL] = COMBO(hjk_combo, KC_DEL),
+    [VCX_PASTE] = COMBO(vcx_combo, C(S(KC_V))),
+    [VC_PASTE] = COMBO(vc_combo, C(KC_V)),
+    [CX_COPY] = COMBO(cx_combo, C(KC_C)),
+    [XZ_CUT] = COMBO(xz_combo, C(KC_X))
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
