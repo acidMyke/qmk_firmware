@@ -107,6 +107,11 @@ combo_t key_combos[] = {
     [XZ_CUT] = COMBO(xz_combo, C(KC_X))
 };
 
+bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
+    // disbale combo if layer is __NMT (for game)
+    return !layer_state_is(__NMT);
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Home row mods disabled
     [__NMT] = LAYOUT_ansi_69(
