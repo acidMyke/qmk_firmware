@@ -15,7 +15,9 @@
         "keyboards/key[!c]*": true,
         "keyboards/keyc[!h]*": true,
         "keyboards/keychron/[!v]*": true,
-        "keyboards/keychron/v[!8]*": true
+        "keyboards/keychron/v[!8]*": true,
+        "keyboards/keychron/v8/iso*/": true,
+        "keyboards/keychron/v8/ansi/": true
     },
     "files.associations": {
         "*.h": "c",
