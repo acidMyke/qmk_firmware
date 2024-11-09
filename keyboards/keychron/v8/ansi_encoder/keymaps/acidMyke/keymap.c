@@ -73,7 +73,7 @@ enum combos {
     VC_PASTE,
     CX_COPY,
     XZ_CUT,
-    
+    SHIFTED_CAP
 };
 
 const uint16_t PROGMEM fd_combo[] = {MT_F, MT_D, COMBO_END};
@@ -90,6 +90,8 @@ const uint16_t PROGMEM vc_combo[] = {LT_V, LT_C, COMBO_END};
 const uint16_t PROGMEM cx_combo[] = {LT_C, KC_X, COMBO_END};
 const uint16_t PROGMEM xz_combo[] = {KC_X, KC_Z, COMBO_END};
 
+const uint16_t PROGMEM shift_cap_combo[] = {KC_LSFT, MT_ESC, COMBO_END};
+
 combo_t key_combos[] = {
     [FD_TAB] = COMBO(fd_combo, KC_TAB),
     [JK_TAB] = COMBO(jk_combo, KC_TAB),
@@ -102,7 +104,8 @@ combo_t key_combos[] = {
     [VCX_PASTE] = COMBO(vcx_combo, C(S(KC_V))),
     [VC_PASTE] = COMBO(vc_combo, C(KC_V)),
     [CX_COPY] = COMBO(cx_combo, C(KC_C)),
-    [XZ_CUT] = COMBO(xz_combo, C(KC_X))
+    [XZ_CUT] = COMBO(xz_combo, C(KC_X)),
+    [SHIFTED_CAP] = COMBO(shift_cap_combo, KC_CAPS)
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
