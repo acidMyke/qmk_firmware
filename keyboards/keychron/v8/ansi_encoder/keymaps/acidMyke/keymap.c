@@ -59,6 +59,10 @@ enum layers{
 #define LT_N LT(_FN2,KC_N)
 #define LT_M LT(_FN1,KC_M)
 
+#define LT_LSPC LT(_FN2, KC_SPC)
+#define LT_RSPC LT(_FN1, KC_SPC)
+
+
 // Combos
 enum combos {
     FD_TAB,
@@ -91,7 +95,6 @@ const uint16_t PROGMEM cx_combo[] = {LT_C, KC_X, COMBO_END};
 const uint16_t PROGMEM xz_combo[] = {KC_X, KC_Z, COMBO_END};
 
 const uint16_t PROGMEM shift_cap_combo[] = {KC_LSFT, MT_ESC, COMBO_END};
-
 combo_t key_combos[] = {
     [FD_TAB] = COMBO(fd_combo, KC_TAB),
     [JK_TAB] = COMBO(jk_combo, KC_TAB),
@@ -127,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,         KC_PSCR,
         MT_ESC,          MT_A,    MT_S,    MT_D,    MT_F,    MT_G,             MT_H,    MT_J,    MT_K,    MT_L,    MT_SCLN, KC_QUOT, KC_ENT,          KC_DEL,
         KC_LSFT,         KC_Z,    KC_X,    LT_C,    LT_V,    LT_B,    LT_B,    LT_N,    LT_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
-        _______,         _______, _______,          _______,          _______, _______,          _______,          _______, KC_LEFT, KC_DOWN, KC_RGHT),
+        _______,         _______, _______, LT_LSPC,          _______, _______,          LT_RSPC,          _______,          KC_LEFT, KC_DOWN, KC_RGHT),
     // Function layer 1 (Home row numbers + F1-12 keys)
     [_FN1] = LAYOUT_ansi_69(
         KC_GRV,  KC_F1,    KC_F2,    KC_F3,    KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,   _______,          KC_MPLY,
