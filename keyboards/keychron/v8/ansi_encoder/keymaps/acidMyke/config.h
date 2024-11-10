@@ -1,5 +1,6 @@
 #pragma once
 
-#define TAPPING_TERM 240
+#define TAPPING_TERM 170
+#define TAPPING_TERM_PER_KEY
 #define ENCODER_DIRECTION_FLIP
 #define RGB_MATRIX_DEFAULT_VAL 127

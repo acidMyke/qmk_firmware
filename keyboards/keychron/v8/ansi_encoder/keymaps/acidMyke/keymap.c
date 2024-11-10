@@ -229,3 +229,15 @@ bool rgb_matrix_indicators_user() {
     
     return false;
 }
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT_A:
+        case MT_L:
+        case LT_LSPC:
+        case LT_RSPC:
+            return 300;
+        default:
+            return TAPPING_TERM;
+    }
+}
