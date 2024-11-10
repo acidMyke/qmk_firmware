@@ -165,7 +165,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 #endif // ENCODER_MAP_ENABLE
 
 // #define DIM_RGB_AZURE       153-80, 245-80, 255-80
-// #define DIM_RGB_BLACK       0, 0, 0
 // #define DIM_RGB_BLUE        0, 0, 255-80
 // #define DIM_RGB_CHARTREUSE  128-80, 255-80, 0
 // #define DIM_RGB_CORAL       255-80, 124-80, 77-80
@@ -205,21 +204,27 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 #define DIM_RGB_YELLOW      175, 175, 0
 
 bool rgb_matrix_indicators_user() {
-    uint8_t layer = get_highest_layer(layer_state);
-    if (layer == _FN1) {
+    if (layer_state_is(_FN1)) {
         for (int i = 16; i < 28; i++) 
             rgb_matrix_set_color(i, DIM_RGB_MAGENTA);
         for (int i = 31; i < 41; i++) 
             rgb_matrix_set_color(i, DIM_RGB_PINK);
         for (int i = 41; i < 43; i++) 
             rgb_matrix_set_color(i, DIM_RGB_MAGENTA);
-    } else if (layer == _FN2) {
+    } else if (layer_state_is(_FN2)) {
         for (int i = 32; i < 36; i++) 
             rgb_matrix_set_color(i, DIM_RGB_SPRINGGREEN);
         for (int i = 36; i < 40; i++) 
             rgb_matrix_set_color(i, DIM_RGB_CORAL);
         rgb_matrix_set_color(22, DIM_RGB_CORAL); // U
         rgb_matrix_set_color(53, DIM_RGB_CORAL); // ,
+    } 
+    if (!layer_state_cmp(default_layer_state, __NMT)) {
+        rgb_matrix_set_color(44, RGB_BLACK);
+        rgb_matrix_set_color(58, RGB_BLACK);
+        rgb_matrix_set_color(59, RGB_BLACK);
+        rgb_matrix_set_color(60, RGB_BLACK);
+        rgb_matrix_set_color(65, RGB_BLACK);
     }
     
     return false;
