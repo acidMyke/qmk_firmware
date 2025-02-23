@@ -67,15 +67,12 @@ enum layers{
 #define MT_L MT(MOD_RALT, KC_L)
 #define MT_SCLN MT(MOD_RGUI, KC_SCLN) // Pinky Key
 
-#define LT_C LT(_FN1,KC_C)
-#define LT_V LT(_FN2,KC_V)
 #define LT_B LT(_FN3,KC_B)
-#define LT_N LT(_FN2,KC_N)
-#define LT_M LT(_FN1,KC_M)
 
 #define LT_LSPC LT(_FN2, KC_SPC)
-#define LT_RSPC LT(_FN1, KC_SPC)
-
+#define LT_FN1 LT(_FN1, KC_BSPC) 
+#define LT_FN2 LT(_FN2, KC_DEL) 
+#define LT_RSPC LT(_FN1, KC_ENT)
 
 // Combos
 enum combos {
@@ -87,7 +84,7 @@ enum combos {
     VC_PASTE,
     CX_COPY,
     XZ_CUT,
-    SHIFTED_CAP
+    SHIFTED_CAP,
 };
 
 const uint16_t PROGMEM fd_combo[] = {MT_F, MT_D, COMBO_END};
@@ -95,9 +92,9 @@ const uint16_t PROGMEM jk_combo[] = {MT_J, MT_K, COMBO_END};
 const uint16_t PROGMEM fds_combo[] = {MT_F, MT_D, MT_S, COMBO_END};
 const uint16_t PROGMEM jkl_combo[] = {MT_J, MT_K, MT_L, COMBO_END};
 
-const uint16_t PROGMEM vcx_combo[] = {LT_V, LT_C, KC_X, COMBO_END};
-const uint16_t PROGMEM vc_combo[] = {LT_V, LT_C, COMBO_END};
-const uint16_t PROGMEM cx_combo[] = {LT_C, KC_X, COMBO_END};
+const uint16_t PROGMEM vcx_combo[] = {KC_V, KC_C, KC_X, COMBO_END};
+const uint16_t PROGMEM vc_combo[] = {KC_V, KC_C, COMBO_END};
+const uint16_t PROGMEM cx_combo[] = {KC_C, KC_X, COMBO_END};
 const uint16_t PROGMEM xz_combo[] = {KC_X, KC_Z, COMBO_END};
 
 const uint16_t PROGMEM shift_cap_combo[] = {KC_LSFT, MT_ESC, COMBO_END};
@@ -110,7 +107,7 @@ combo_t key_combos[] = {
     [VC_PASTE] = COMBO(vc_combo, C(KC_V)),
     [CX_COPY] = COMBO(cx_combo, C(KC_C)),
     [XZ_CUT] = COMBO(xz_combo, C(KC_X)),
-    [SHIFTED_CAP] = COMBO(shift_cap_combo, KC_CAPS)
+    [SHIFTED_CAP] = COMBO(shift_cap_combo, KC_CAPS), 
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
@@ -121,39 +118,39 @@ bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Home row mods disabled
     [__NMT] = LAYOUT_ansi_69(
-        TD(TD_GRV_TILD), KC_1,    KC_2,    KC_3, KC_4,   KC_5, KC_6,     KC_7,     KC_8, KC_9,   KC_0,    KC_MINS, KC_EQL,  KC_BSPC,          KC_MUTE,
-        KC_TAB,          KC_Q,    KC_W,    KC_E, KC_R,   KC_T, KC_Y,     KC_U,     KC_I, KC_O,   KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,          KC_PSCR,
-        KC_ESC,          KC_A,    KC_S,    KC_D, KC_F,   KC_G,           KC_H,     KC_J, KC_K,   KC_L,    KC_SCLN, KC_QUOT, KC_ENT,           KC_DEL,
-        KC_LSFT,                  KC_Z,    KC_X, KC_C,   KC_V, KC_B,     KC_B,     KC_N, KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
-        KC_LCTL,         KC_LWIN, KC_LALT,       KC_SPC,       MO(_FN1), MO(_FN2),       KC_SPC,          KC_RALT,          KC_LEFT, KC_DOWN, KC_RGHT),
+        KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,   KC_5, KC_6,   KC_7,     KC_8, KC_9,   KC_0,    KC_MINS, KC_EQL,  KC_BSPC,          KC_MUTE,
+        KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,   KC_T, KC_Y,   KC_U,     KC_I, KC_O,   KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,          KC_PSCR,
+        KC_ESC,  KC_A,    KC_S,    KC_D, KC_F,   KC_G,         KC_H,     KC_J, KC_K,   KC_L,    KC_SCLN, KC_QUOT, KC_ENT,           KC_DEL,
+        KC_LSFT,          KC_Z,    KC_X, KC_C,   KC_V, KC_B,   KC_B,     KC_N, KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
+        KC_LCTL, KC_LWIN, KC_LALT,       KC_SPC,       LT_FN1, LT_FN2,       KC_SPC,          KC_RALT,          KC_LEFT, KC_DOWN, KC_RGHT),
     // Home row mods enabled
     [__MT] = LAYOUT_ansi_69(
-        TD(TD_GRV_TILD), KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,         KC_MUTE,
-        KC_TAB,          KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,         KC_PSCR,
-        MT_ESC,          MT_A,    MT_S,    MT_D,    MT_F,    MT_G,             MT_H,    MT_J,    MT_K,    MT_L,    MT_SCLN, KC_QUOT, KC_ENT,          KC_DEL,
-        KC_LSFT,         KC_Z,    KC_X,    LT_C,    LT_V,    LT_B,    LT_B,    LT_N,    LT_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
-        _______,         _______, _______, LT_LSPC,          _______, _______,          LT_RSPC,          _______,          KC_LEFT, KC_DOWN, KC_RGHT),
+        KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,    KC_5, KC_6,   KC_7,   KC_8, KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,         KC_MUTE,
+        KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,    KC_T, KC_Y,   KC_U,   KC_I, KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,         KC_PSCR,
+        MT_ESC,  KC_A,    MT_S,    MT_D, MT_F,    MT_G,         MT_H,   MT_J, MT_K,    KC_L,    MT_SCLN, KC_QUOT, KC_ENT,          KC_DEL,
+        KC_LSFT,          KC_Z,    KC_X, KC_C,    KC_V, LT_B,   LT_B,   KC_N, KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
+        _______, _______, _______,       LT_LSPC,       LT_FN1, LT_FN2,       LT_RSPC,          _______,          KC_LEFT, KC_DOWN, KC_RGHT),
     // Function layer 1 (Home row numbers + F1-12 keys)
     [_FN1] = LAYOUT_ansi_69(
         KC_GRV,  KC_F1,    KC_F2,    KC_F3,    KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,   _______,          KC_MPLY,
         KC_TILD, KC_EXLM,  KC_AT,    RGB_HUI,  KC_HASH, KC_DLR,   KC_PERC,  KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN,  KC_RPRN,  KC_UNDS,  KC_PLUS,          _______,
         KC_GRV,  KC_1,     KC_2,     KC_3,     KC_4,    KC_5,               KC_6,    KC_7,     KC_8,    KC_9,     KC_0,     KC_MINS,  KC_EQL,           _______,
-        _______,           _______,  _______,  _______, _______,  _______,  _______, NK_TOGG,  _______, _______,  _______,  _______,  _______, KC_PGUP,
-        _______, _______,  _______,            _______,           _______,  _______,           _______,           _______,            KC_HOME, KC_PGDN,  KC_END),
-    // Function layer 2 (RGB controls)
+        _______,           C(KC_Z),  C(KC_X),  C(KC_C), C(KC_V),  C(KC_B),  _______, NK_TOGG,  _______, _______,  _______,  _______,  _______, KC_PGUP,
+        _______, _______,  _______,            KC_SPC,            _______,  _______,           KC_SPC,            _______,            KC_HOME, KC_PGDN,  KC_END),
+    // Function layer 2 (VIM Nav & F13-24 keys)
     [_FN2] = LAYOUT_ansi_69(
         KC_GRV,  KC_F13,   KC_F14,   KC_F15,  KC_F16,  KC_F17,  KC_F18,   KC_F19,  KC_F20,  KC_F21,  KC_F22,   KC_F23,   KC_F24,   _______,          C(A(KC_F22)),
         _______, _______,  _______,  _______, _______, _______, _______,  KC_UP,   _______, _______, _______,  _______,  _______,  _______,          _______,
         _______, _______,  KC_LALT,  KC_LSFT, KC_LCTL, KC_LSFT,           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,  _______,  _______,  _______,          _______,
-        _______,           _______,  _______, _______, _______, _______,  _______, _______, _______, KC_DOWN,  _______,  _______,  _______, KC_PGUP,
-        _______, _______,  _______,           _______,          _______,  _______,          _______,           _______,            KC_HOME, KC_PGDN, KC_END),
+        _______,           C(KC_Z),  C(KC_X), C(KC_C), C(KC_V), C(KC_B),  _______, _______, _______, KC_DOWN,  _______,  _______,  _______, KC_PGUP,
+        _______, _______,  _______,           KC_SPC,           _______,  _______,           KC_SPC,           _______,            KC_HOME, KC_PGDN, KC_END),
     // Function layer 3 (F13-24 keys)
     [_FN3] = LAYOUT_ansi_69(
-        KC_TILD, KC_F13,   KC_F14,   KC_F15,  KC_F16,  KC_F17,  KC_F18,   KC_F19,  KC_F20,  KC_F21,  KC_F22,   KC_F23,   KC_F24,   _______,          RGB_TOG,
-        RGB_TOG, RGB_MOD,  RGB_VAI,  RGB_HUI, RGB_SAI, RGB_SPI, _______,  _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______, RGB_RMOD, RGB_VAD,  RGB_HUD, RGB_SAD, RGB_SPD,           _______, _______, _______, _______,  _______,  _______,  _______,          _______,
-        _______,           _______,  _______, _______, _______, _______,  _______, _______, _______, _______,  _______,  _______,  _______, _______,
-        _______, _______,  _______,           _______,          _______,  _______,          _______,           _______,            _______, _______, _______)
+        KC_TILD, SS_PASS_1, SS_PASS_2, SS_PASS_3, SS_PASS_4, SS_PASS_5, SS_PASS_6, SS_PASS_7, SS_PASS_8, SS_PASS_9, SS_PASS_0, RM_SPDD,  RM_SPDU,   _______,         RGB_TOG,
+        RM_ON,   RM_NEXT,   RM_HUEU,   RM_SATU,   RM_VALU,   RM_SPDU,   _______,   _______,   _______,   _______,   _______,   _______,  _______,  _______,          _______,
+        RM_OFF,  RM_PREV,   RM_HUED,   RM_SATD,   RM_VALD,   RM_SPDD,              _______,   _______,   _______,   _______,   _______,  _______,  _______,          _______,
+        _______,            _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,  _______,  _______, _______,
+        _______, _______,   _______,              _______,              _______,   _______,              _______,              _______,            _______, _______, _______)
 };
 
 #if defined(ENCODER_MAP_ENABLE)
@@ -162,7 +159,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [__MT] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [_FN1]   = {ENCODER_CCW_CW(KC_MPRV, KC_MNXT)},
     [_FN2]   = {ENCODER_CCW_CW(C(S(KC_F22)), C(KC_F22))},
-    [_FN3]   = {ENCODER_CCW_CW(RGB_VAD, RGB_VAI)}
+    [_FN3]   = {ENCODER_CCW_CW(RM_VALD, RM_VALU)}
 };
 #endif // ENCODER_MAP_ENABLE
 
@@ -206,14 +203,15 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 #define DIM_RGB_YELLOW      175, 175, 0
 
 bool rgb_matrix_indicators_user() {
-    if (layer_state_is(_FN1)) {
-        for (int i = 16; i < 28; i++) 
-            rgb_matrix_set_color(i, DIM_RGB_MAGENTA);
-        for (int i = 31; i < 41; i++) 
-            rgb_matrix_set_color(i, DIM_RGB_PINK);
-        for (int i = 41; i < 43; i++) 
-            rgb_matrix_set_color(i, DIM_RGB_MAGENTA);
-    } else if (layer_state_is(_FN2)) {
+    // if (layer_state_is(_FN1)) {
+    //     for (int i = 16; i < 28; i++) 
+    //         rgb_matrix_set_color(i, DIM_RGB_MAGENTA);
+    //     for (int i = 31; i < 41; i++) 
+    //         rgb_matrix_set_color(i, DIM_RGB_PINK);
+    //     for (int i = 41; i < 43; i++) 
+    //         rgb_matrix_set_color(i, DIM_RGB_MAGENTA);
+    // } 
+    if (layer_state_is(_FN2)) {
         for (int i = 32; i < 36; i++) 
             rgb_matrix_set_color(i, DIM_RGB_SPRINGGREEN);
         for (int i = 36; i < 40; i++) 
@@ -225,7 +223,7 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(44, RGB_BLACK);
         rgb_matrix_set_color(58, RGB_BLACK);
         rgb_matrix_set_color(59, RGB_BLACK);
-        rgb_matrix_set_color(60, RGB_BLACK);
+        // rgb_matrix_set_color(60, RGB_BLACK);
         rgb_matrix_set_color(65, RGB_BLACK);
     }
     
@@ -235,9 +233,9 @@ bool rgb_matrix_indicators_user() {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT_A:
+        case MT_S:
+        case MT_K:
         case MT_L:
-        case LT_LSPC:
-        case LT_RSPC:
             return 300;
         default:
             return TAPPING_TERM;
