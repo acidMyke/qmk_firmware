@@ -71,8 +71,8 @@ enum layers{
 
 #define LT_LSPC LT(_FN2, KC_SPC)
 #define LT_FN1 LT(_FN1, KC_BSPC) 
-#define LT_FN2 LT(_FN2, KC_DEL) 
-#define LT_RSPC LT(_FN1, KC_ENT)
+#define LT_FN2 LT(_FN2, KC_ENT) 
+#define LT_RSPC LT(_FN1, KC_SPC)
 
 // Combos
 enum combos {
