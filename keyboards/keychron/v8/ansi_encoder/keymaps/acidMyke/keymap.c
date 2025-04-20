@@ -285,51 +285,61 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING_DELAY(PASSWORD_1, 17);
                 return false;
             }
+            break;
         case SS_PASS_2:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_2, 17);
                 return false;
             }
+            break;
         case SS_PASS_3:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_3, 17);
                 return false;
             }
+            break;
         case SS_PASS_4:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_4, 17);
                 return false;
             }
+            break;
         case SS_PASS_5:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_5, 17);
                 return false;
             }
+            break;
         case SS_PASS_6:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_6, 17);
                 return false;
             }
+            break;
         case SS_PASS_7:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_7, 17);
                 return false;
             }
+            break;
         case SS_PASS_8:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_8, 17);
                 return false;
             }
+            break;
         case SS_PASS_9:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_9, 17);
                 return false;
             }
+            break;
         case SS_PASS_0:
             if (record->event.pressed) {
                 SEND_STRING_DELAY(PASSWORD_0, 17);
                 return false;
             }
+            break;
     }
 
     return true;
