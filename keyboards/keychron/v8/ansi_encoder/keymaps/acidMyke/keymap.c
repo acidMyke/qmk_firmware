@@ -134,27 +134,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,   KC_T, KC_Y,   KC_U,     KC_I, KC_O,   KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,          KC_PSCR,
         KC_ESC,  KC_A,    KC_S,    KC_D, KC_F,   KC_G,         KC_H,     KC_J, KC_K,   KC_L,    KC_SCLN, KC_QUOT, KC_ENT,           KC_DEL,
         KC_LSFT,          KC_Z,    KC_X, KC_C,   KC_V, KC_B,   KC_B,     KC_N, KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
-        KC_LCTL, KC_LWIN, KC_LALT,       KC_SPC,       LT_FN1, LT_FN2,       KC_SPC,          KC_RALT,          KC_LEFT, KC_DOWN, KC_RGHT),
+        KC_LCTL, KC_LWIN, KC_LALT,       KC_SPC,       LT_FN1, LT_FN2,       KC_SPC,          KC_RALT,            KC_LEFT, KC_DOWN, KC_RGHT),
     // Home row mods enabled
     [__MT] = LAYOUT_ansi_69(
-        KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,    KC_5, KC_6,   KC_7,   KC_8, KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,         KC_MUTE,
-        KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,    KC_T, KC_Y,   KC_U,   KC_I, KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,         KC_PSCR,
-        MT_ESC,  KC_A,    MT_S,    MT_D, MT_F,    MT_G,         MT_H,   MT_J, MT_K,    KC_L,    MT_SCLN, KC_QUOT, KC_ENT,          KC_DEL,
+        KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,    KC_5, KC_6,   KC_7,   KC_8, KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,          KC_MUTE,
+        KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,    KC_T, KC_Y,   KC_U,   KC_I, KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,          KC_PSCR,
+        MT_ESC,  KC_A,    MT_S,    MT_D, MT_F,    MT_G,         MT_H,   MT_J, MT_K,    KC_L,    MT_SCLN, KC_QUOT, KC_ENT,           KC_DEL,
         KC_LSFT,          KC_Z,    KC_X, KC_C,    KC_V, LT_B,   LT_B,   KC_N, KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
         _______, _______, TD_LALT,       LT_LSPC,       LT_FN1, LT_FN2,       LT_RSPC,          _______,          KC_LEFT, KC_DOWN, KC_RGHT),
     // Function layer 1 (VIM Nav & F1-12 keys)
     [_FN1] = LAYOUT_ansi_69(
-        KC_GRV,  KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,   KC_F12,   _______,          KC_MPLY,
+        KC_GRV,  KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,   _______,          KC_MPLY,
         KC_TILD, KC_1,     KC_UP,   KC_3,    KC_4,    KC_5,     C(KC_Y),  KC_UP,   _______, _______, _______,  _______,  _______,  KC_PLUS,          KC_INS,
         MT_ESC,  KC_LEFT,  KC_DOWN, KC_RGHT, MT1_9,   MT1_0,              KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,  _______,  _______,  KC_EQL,           _______,
         _______,           C(KC_Z), C(KC_X), C(KC_C), C(KC_V),  C(KC_B),  _______, _______, _______, KC_DOWN,  _______,  _______,  _______, KC_PGUP,
-        _______, _______,  TD_LALT,          LT_LSPC,           LT_FN1,   LT_FN2,          LT_RSPC,           _______,            KC_HOME, KC_PGDN,  KC_END),
+        _______, _______,  TD_LALT,          LT_LSPC,           LT_FN1,   LT_FN2,           LT_RSPC,           _______,            KC_HOME, KC_PGDN,  KC_END),
     // Function layer 2 (RTL)
     [_FN2] = LAYOUT_ansi_69(
         KC_GRV,  KC_F13,   KC_0,    KC_MINS,  KC_EQL,   KC_BSPC, KC_F18,   KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,   KC_F24,   _______,          C(A(KC_F22)),
         _______, _______,  KC_P,    KC_LBRC,  KC_RBRC,  KC_BSLS, _______,  KC_PGUP, _______, _______, _______, _______,  _______,  _______,          _______,
         MT_ESC,  _______,  MT2_L,   MT2_SCLN, MT2_QUOT, MT2_ENT,           KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,  _______,  _______,          _______,
-        _______,           _______, _______,  KC_COMM,  KC_DOT,  KC_SLSH,  _______, _______, _______, KC_PGDN, _______,  _______,  _______, KC_PGUP,
+        _______,           _______, _______,  KC_COMM,  KC_DOT,  KC_SLSH,  _______, _______, _______, KC_PGDN, _______,  _______,  _______,  KC_PGUP,
         _______, _______,  TD_LALT,           LT_LSPC,           LT_FN1,   LT_FN2,           LT_RSPC,           _______,            KC_HOME, KC_PGDN, KC_END),
     // Function layer 3 (F13-24 keys)
     [_FN3] = LAYOUT_ansi_69(
@@ -287,7 +287,6 @@ void alt_clayer_finished(tap_dance_state_t *state, void *user_data) {
 
         case TD_DOUBLE_TAP:
         case TD_DOUBLE_SINGLE_TAP:
-            offset++;
         case TD_SINGLE_TAP:
             offset++;
             default_layer_set(1UL << (__MT + ((current_default - __MT + offset) % 2)));
