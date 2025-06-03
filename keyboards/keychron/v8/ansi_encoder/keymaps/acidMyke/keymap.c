@@ -22,16 +22,7 @@
 
 // Custom Keycodes
 enum {
-    SS_PASS_1 = SAFE_RANGE,
-    SS_PASS_2,
-    SS_PASS_3,
-    SS_PASS_4,
-    SS_PASS_5,
-    SS_PASS_6,
-    SS_PASS_7,
-    SS_PASS_8,
-    SS_PASS_9,
-    SS_PASS_0,
+    CUS_00 = SAFE_RANGE_AFTER_SS_PASS
 };
 
 // Tap dance definitions
@@ -40,6 +31,7 @@ enum {
     TD_GRV_TILD,
 };
 
+bool process_record_password(uint16_t keycode, keyrecord_t *record);
 void alt_clayer_finished(tap_dance_state_t *state, void *user_data);
 void alt_clayer_reset(tap_dance_state_t *state, void *user_data);
 
@@ -240,37 +232,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     return TAPPING_TERM;
 }
 
-#ifndef PASSWORD_1
-#define PASSWORD_1 ""
-#endif
-#ifndef PASSWORD_2
-#define PASSWORD_2 ""
-#endif
-#ifndef PASSWORD_3
-#define PASSWORD_3 ""
-#endif
-#ifndef PASSWORD_4
-#define PASSWORD_4 ""
-#endif
-#ifndef PASSWORD_5
-#define PASSWORD_5 ""
-#endif
-#ifndef PASSWORD_6
-#define PASSWORD_6 ""
-#endif
-#ifndef PASSWORD_7
-#define PASSWORD_7 ""
-#endif
-#ifndef PASSWORD_8
-#define PASSWORD_8 ""
-#endif
-#ifndef PASSWORD_9
-#define PASSWORD_9 ""
-#endif
-#ifndef PASSWORD_0
-#define PASSWORD_0 ""
-#endif
-
 static bool inactive_timer_started = false;
 static uint16_t inactive_timer = 0;
 
@@ -279,68 +240,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         inactive_timer = timer_read();
     }
 
-    switch (keycode) {
-        case SS_PASS_1:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_1, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_2:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_2, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_3:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_3, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_4:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_4, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_5:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_5, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_6:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_6, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_7:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_7, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_8:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_8, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_9:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_9, 17);
-                return false;
-            }
-            break;
-        case SS_PASS_0:
-            if (record->event.pressed) {
-                SEND_STRING_DELAY(PASSWORD_0, 17);
-                return false;
-            }
-            break;
+    if (!process_record_password(keycode, record)) {
+        return false;
     }
+
 
     return true;
 }
