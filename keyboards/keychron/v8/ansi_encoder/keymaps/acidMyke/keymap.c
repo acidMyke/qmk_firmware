@@ -200,21 +200,20 @@ bool rgb_matrix_indicators_user() {
     }
     
     if (layer_state_is(_FN2) || layer == _FN2) {
-        for (int i = 0; i < 4; i++) 
-        {
-            rgb_matrix_set_color(i+2, DIM_RGB_PURPLE); // KC_0, KC_MINS, KC_EQL,  KC_BSPC,
-            rgb_matrix_set_color(i+17, DIM_RGB_PURPLE); // KC_P, KC_LBRC, KC_RBRC, KC_BSLS,
-            rgb_matrix_set_color(i+32, DIM_RGB_PURPLE); // KC_L, MT_SCLN, KC_QUOT, KC_ENT, 
-
-            rgb_matrix_set_color(i+10, DIM_RGB_PURPLE); // KC_0, KC_MINS, KC_EQL,  KC_BSPC,
-            rgb_matrix_set_color(i+25, DIM_RGB_PURPLE); // KC_P, KC_LBRC, KC_RBRC, KC_BSLS,
-            rgb_matrix_set_color(i+39, DIM_RGB_PURPLE); // KC_L, MT_SCLN, KC_QUOT, KC_ENT, 
-        }
-        
+        rgb_matrix_set_color(34, DIM_RGB_SPRINGGREEN);
+        rgb_matrix_set_color(35, DIM_RGB_SPRINGGREEN);
         for (int i = 36; i < 40; i++) 
             rgb_matrix_set_color(i, DIM_RGB_RED);
         rgb_matrix_set_color(22, DIM_RGB_RED); // U
         rgb_matrix_set_color(53, DIM_RGB_RED); // ,
+        rgb_matrix_set_color(17, DIM_RGB_RED); // W
+        rgb_matrix_set_color(31, DIM_RGB_RED); // A
+        rgb_matrix_set_color(32, DIM_RGB_RED); // S
+        rgb_matrix_set_color(33, DIM_RGB_RED); // D
+
+        rgb_matrix_set_color(47, DIM_RGB_MAGENTA); // C
+        rgb_matrix_set_color(48, DIM_RGB_MAGENTA); // V
+        rgb_matrix_set_color(49, DIM_RGB_MAGENTA); // B 
     }
 
     if (layer >= __NMT && layer <= _FN3) {
