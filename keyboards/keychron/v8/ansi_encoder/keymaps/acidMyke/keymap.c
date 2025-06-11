@@ -22,7 +22,7 @@
 
 // Custom Keycodes
 enum {
-    CUS_00 = SAFE_RANGE_AFTER_SS_PASS
+    SS_SYSTEM = SAFE_RANGE_AFTER_SS_PASS
 };
 
 // Tap dance definitions
@@ -97,6 +97,7 @@ enum combos {
     CX_COPY,
     XZ_CUT,
     SHIFTED_CAP,
+    ASD_SYS
 };
 
 const uint16_t PROGMEM fd_combo[] = {MT_F, MT_D, COMBO_END};
@@ -109,6 +110,8 @@ const uint16_t PROGMEM vc_combo[] = {KC_V, KC_C, COMBO_END};
 const uint16_t PROGMEM cx_combo[] = {KC_C, KC_X, COMBO_END};
 const uint16_t PROGMEM xz_combo[] = {KC_X, KC_Z, COMBO_END};
 
+const uint16_t PROGMEM asd_combo[] = {KC_A, MT_S, MT_D, COMBO_END};
+
 const uint16_t PROGMEM shift_cap_combo[] = {KC_LSFT, MT_ESC, COMBO_END};
 combo_t key_combos[] = {
     [FD_TAB] = COMBO(fd_combo, KC_TAB),
@@ -120,6 +123,7 @@ combo_t key_combos[] = {
     [CX_COPY] = COMBO(cx_combo, C(KC_C)),
     [XZ_CUT] = COMBO(xz_combo, C(KC_X)),
     [SHIFTED_CAP] = COMBO(shift_cap_combo, KC_CAPS), 
+    [ASD_SYS] = COMBO(asd_combo, SS_SYSTEM),
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
@@ -182,24 +186,21 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 #endif // ENCODER_MAP_ENABLE
 
 bool rgb_matrix_indicators_user() {
-    // if (layer_state_is(_FN1)) {
-    //     for (int i = 16; i < 28; i++) 
-    //         rgb_matrix_set_color(i, DIM_RGB_MAGENTA);
-    //     for (int i = 31; i < 41; i++) 
-    //         rgb_matrix_set_color(i, DIM_RGB_PINK);
-    //     for (int i = 41; i < 43; i++) 
-    //         rgb_matrix_set_color(i, DIM_RGB_MAGENTA);
-    // } 
-    if (layer_state_is(_FN1)) {
-        for (int i = 32; i < 36; i++) 
-            rgb_matrix_set_color(i, DIM_RGB_SPRINGGREEN);
+    uint8_t layer = biton32(default_layer_state);
+    if (layer_state_is(_FN1) || layer == _FN1) {
+        rgb_matrix_set_color(34, DIM_RGB_SPRINGGREEN);
+        rgb_matrix_set_color(35, DIM_RGB_SPRINGGREEN);
         for (int i = 36; i < 40; i++) 
             rgb_matrix_set_color(i, DIM_RGB_CORAL);
         rgb_matrix_set_color(22, DIM_RGB_CORAL); // U
         rgb_matrix_set_color(53, DIM_RGB_CORAL); // ,
+        rgb_matrix_set_color(17, DIM_RGB_CORAL); // W
+        rgb_matrix_set_color(31, DIM_RGB_CORAL); // A
+        rgb_matrix_set_color(32, DIM_RGB_CORAL); // S
+        rgb_matrix_set_color(33, DIM_RGB_CORAL); // D
     }
     
-    if (layer_state_is(_FN2)) {
+    if (layer_state_is(_FN2) || layer == _FN2) {
         for (int i = 0; i < 4; i++) 
         {
             rgb_matrix_set_color(i+2, DIM_RGB_PURPLE); // KC_0, KC_MINS, KC_EQL,  KC_BSPC,
@@ -217,7 +218,6 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(53, DIM_RGB_RED); // ,
     }
 
-    uint8_t layer = biton32(default_layer_state);
     if (layer >= __NMT && layer <= _FN3) {
         rgb_matrix_set_color(layer, DIM_RGB_TURQUOISE);
     }
@@ -244,6 +244,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
 
+    if (!record->event.pressed && keycode == SS_SYSTEM) {
+        SEND_STRING_DELAY("SYSTEM", 10);
+        return false;
+    }
 
     return true;
 }
