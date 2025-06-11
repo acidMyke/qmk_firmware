@@ -93,7 +93,8 @@ enum combos {
     CX_COPY,
     XZ_CUT,
     SHIFTED_CAP,
-    ASD_SYS
+    ASD_SYS,
+    GRAVE_F1
 };
 
 const uint16_t PROGMEM fd_combo[] = {MT_F, MT_D, COMBO_END};
@@ -106,9 +107,10 @@ const uint16_t PROGMEM vc_combo[] = {KC_V, KC_C, COMBO_END};
 const uint16_t PROGMEM cx_combo[] = {KC_C, KC_X, COMBO_END};
 const uint16_t PROGMEM xz_combo[] = {KC_X, KC_Z, COMBO_END};
 
-const uint16_t PROGMEM asd_combo[] = {KC_A, MT_S, MT_D, COMBO_END};
-
 const uint16_t PROGMEM shift_cap_combo[] = {KC_LSFT, MT_ESC, COMBO_END};
+const uint16_t PROGMEM asd_combo[] = {KC_A, MT_S, MT_D, COMBO_END};
+const uint16_t PROGMEM grave_f1_combo[] = {KC_GRV, KC_1, COMBO_END};
+
 combo_t key_combos[] = {
     [FD_TAB] = COMBO(fd_combo, KC_TAB),
     [JK_BSPC] = COMBO(jk_combo, KC_TAB),
@@ -120,6 +122,7 @@ combo_t key_combos[] = {
     [XZ_CUT] = COMBO(xz_combo, C(KC_X)),
     [SHIFTED_CAP] = COMBO(shift_cap_combo, KC_CAPS), 
     [ASD_SYS] = COMBO(asd_combo, SS_SYSTEM),
+    [GRAVE_F1] = COMBO(grave_f1_combo, KC_F1),
 };
 
 bool combo_should_trigger(uint16_t combo_index, combo_t *combo, uint16_t keycode, keyrecord_t *record) {
