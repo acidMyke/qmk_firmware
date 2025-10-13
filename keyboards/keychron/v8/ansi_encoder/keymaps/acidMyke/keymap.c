@@ -144,28 +144,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,    KC_T, KC_Y,   KC_U,   KC_I, KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,          KC_PSCR,
         MT_ESC,  KC_A,    MT_S,    MT_D, MT_F,    MT_G,         MT_H,   MT_J, MT_K,    KC_L,    MT_SCLN, KC_QUOT, KC_ENT,           KC_DEL,
         KC_LSFT,          KC_Z,    KC_X, KC_C,    KC_V, LT_B,   LT_B,   KC_N, KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, KC_UP,
-        _______, _______, TD_LALT,       LT_LSPC,       LT_FN1, LT_FN2,       LT_RSPC,          _______,          KC_LEFT, KC_DOWN, KC_RGHT),
+        _______, _______, KC_LALT,       LT_LSPC,       LT_FN1, LT_FN2,       LT_RSPC,          _______,          KC_LEFT, KC_DOWN, KC_RGHT),
     // Function layer 1 (VIM Nav & F1-12 keys)
     [_FN1] = LAYOUT_ansi_69(
         KC_GRV,  KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,   _______,          KC_MPLY,
         KC_TAB,  _______,  KC_UP,   _______, _______, _______,  C(KC_Y),  KC_UP,   _______, _______, _______,  _______,  _______,  KC_PLUS,          KC_INS,
         MT_ESC,  KC_LEFT,  KC_DOWN, KC_RGHT, MT_F,    MT_G,               KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT,  _______,  _______,  KC_EQL,           _______,
         _______,           C(KC_Z), C(KC_X), C(KC_C), C(KC_V),  C(KC_B),  _______, _______, _______, KC_DOWN,  _______,  _______,  _______, KC_PGUP,
-        _______, _______,  TD_LALT,          LT_LSPC,           LT_FN1,   LT_FN2,           LT_RSPC,           _______,            KC_HOME, KC_PGDN,  KC_END),
+        _______, _______,  KC_LALT,          LT_LSPC,           LT_FN1,   LT_FN2,           LT_RSPC,           _______,            KC_HOME, KC_PGDN,  KC_END),
     // Function layer 2 (RTL)
     [_FN2] = LAYOUT_ansi_69(
         KC_GRV,  KC_F1,    KC_F2,   KC_F3,   KC_F4,    KC_F5,      KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,   _______,          C(A(KC_F22)),
         KC_TAB,  _______,  KC_PGUP, _______, _______,  _______,    _______,  KC_PGUP, _______, _______, _______, _______,  _______,  _______,          _______,
         MT_ESC,  KC_HOME,  KC_PGDN, KC_END,  MT_F,     MT_G,       KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______,  _______,  _______,          _______,
         _______,           C(KC_Z), C(KC_X), C(KC_T),  C(S(KC_O)), C(KC_P),  _______, _______, _______, KC_PGDN, _______,  _______,  _______,  KC_PGUP,
-        _______, _______,  TD_LALT,          LT_LSPC,              LT_FN1,   LT_FN2,           LT_RSPC,          _______,            KC_HOME, KC_PGDN, KC_END),
+        _______, _______,  KC_LALT,          LT_LSPC,              LT_FN1,   LT_FN2,           LT_RSPC,          _______,            KC_HOME, KC_PGDN, KC_END),
     // Function layer 3 (F13-24 keys)
     [_FN3] = LAYOUT_ansi_69(
         KC_TILD, SS_PASS_1, SS_PASS_2, SS_PASS_3, SS_PASS_4, SS_PASS_5, SS_PASS_6, SS_PASS_7, SS_PASS_8, SS_PASS_9, SS_PASS_0, RM_SPDD,  RM_SPDU,  _______,         RGB_TOG,
         RM_ON,   RM_NEXT,   RM_HUEU,   RM_SATU,   RM_VALU,   RM_SPDU,   _______,   _______,   _______,   _______,   _______,   _______,  _______,  _______,          _______,
         RM_OFF,  RM_PREV,   RM_HUED,   RM_SATD,   RM_VALD,   RM_SPDD,              _______,   _______,   _______,   _______,   _______,  _______,  _______,          _______,
         _______,            _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,  _______,  _______, _______,
-        _______, _______,   TD_LALT,              _______,              _______,   _______,              _______,              _______,            _______, _______, _______)
+        _______, _______,   KC_LALT,              _______,              _______,   _______,              _______,              _______,            _______, _______, _______)
     // [TEMPLATE] = LAYOUT_ansi_69(
     //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______,          _______,
     //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______,          _______,
