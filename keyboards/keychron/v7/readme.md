@@ -1,5 +1,7 @@
 # Keychron V7
 
+![Keychron V7](https://cdn.shopify.com/s/files/1/0059/0630/1017/t/5/assets/keychronv7custommechanicalkeyboard-1670399077029.jpg?v=1670399079)
+
 A customizable 70% keyboard.
 
 * Keyboard Maintainer: [Keychron](https://github.com/keychron)

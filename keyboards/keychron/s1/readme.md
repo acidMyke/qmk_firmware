@@ -1,5 +1,7 @@
 # Keychron S1
 
+![Keychron S1](https://cdn.shopify.com/s/files/1/0059/0630/1017/t/5/assets/keychrons1lowprofileqmkkeyboard5-1667232585117.jpg?v=1667232589)
+
 A customizable 75% keyboard with RGB backlight and White backlight.
 
 * Keyboard Maintainer: [Keychron](https://github.com/keychron)

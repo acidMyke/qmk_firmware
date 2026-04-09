@@ -1,5 +1,7 @@
 # Keychron V10
 
+![Keychron V10](https://cdn.shopify.com/s/files/1/0059/0630/1017/t/5/assets/keychronv10custommechanicalkeyboard4-1672212834709.jpg?v=1672212837)
+
 A customizable 75% ergonomic keyboard.
 
 * Keyboard Maintainer: [Keychron](https://github.com/keychron)

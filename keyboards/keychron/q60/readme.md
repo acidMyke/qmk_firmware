@@ -1,5 +1,7 @@
 # Keychron Q60
 
+![Keychron Q60](https://cdn.shopify.com/s/files/1/0059/0630/1017/t/5/assets/keychron-q60-qmk-via-custom-mechanical-keyboard-60-layout-1669173728813.jpg?v=1669173732)
+
 A customizable 60% keyboard.
 
 * Keyboard Maintainer: [Keychron](https://github.com/keychron)

@@ -1,5 +1,7 @@
 # Keychron V8
 
+![Keychron V8](https://cdn.shopify.com/s/files/1/0059/0630/1017/t/5/assets/keychronv8alicelayoutqmkcustommechanicalkeyboard2-1670918912594.jpg?v=1670918915)
+
 A customizable 65% and ergonomic keyboard.
 
 * Keyboard Maintainer: [Keychron](https://github.com/keychron)
