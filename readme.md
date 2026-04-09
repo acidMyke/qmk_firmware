@@ -63,6 +63,14 @@ Examples:
 - `keyboards/keychron/k8_pro/readme.md`
 - `keyboards/keychron/v1_max/readme.md`
 
+## Hardware Design Reference
+
+If you are interested in the hardware design of Keychron keyboards, the hardware design files are maintained in a separate repository:
+
+[Keychron-Keyboards-Hardware-Design](https://github.com/Keychron/Keychron-Keyboards-Hardware-Design)
+
+This QMK tree is focused on firmware. For PCB files, schematics, and other hardware-design-related resources, use the hardware design repository above.
+
 ## Notes
 
 - This is a convenience checkout, not an official upstream layout.
