@@ -36,7 +36,7 @@ Build a firmware target with either `make` or the QMK CLI.
 Examples:
 
 ```bash
-make keychron/q1_he/ansi:keychron
+make keychron/q1_he/ansi_encoder:keychron
 make keychron/k8_pro/ansi/rgb:keychron
 ```
 
