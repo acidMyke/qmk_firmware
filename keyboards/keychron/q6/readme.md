@@ -1,5 +1,7 @@
 # Keychron Q6
 
+![Keychron Q6](https://cdn.shopify.com/s/files/1/0059/0630/1017/t/5/assets/keychronq6fullsizedqmkcustommechanicalkeyboard5--edited-1655290569944.jpg?v=1655290575)
+
 A customizable 100% keyboard.
 
 * Keyboard Maintainer: [Keychron](https://github.com/keychron)
