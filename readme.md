@@ -69,6 +69,8 @@ If you are interested in the hardware design of Keychron keyboards, the hardware
 
 [Keychron-Keyboards-Hardware-Design](https://github.com/Keychron/Keychron-Keyboards-Hardware-Design)
 
+![Keychron Hardware Design](https://github.com/Keychron/Keychron-Keyboards-Hardware-Design/blob/main/docs/assets/hero-keychron-hardware-design.jpg)
+
 This QMK tree is focused on firmware. For PCB files, schematics, and other hardware-design-related resources, use the hardware design repository above.
 
 ## Notes
