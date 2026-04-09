@@ -4,7 +4,11 @@
 
 Official QMK firmware for Keychron and Lemokey keyboards. This repository contains the firmware source, build configurations, and keymaps for 63+ boards across the Q, Q HE, Q Max, K HE, K Max, K Pro, V, V Max, C Pro, S, X, and Lemokey series.
 
-Keychron open-sources its keyboard firmware so you can remap every key, build custom macros, tune Hall Effect sensitivity, and make your keyboard truly yours.
+## Why Open Source?
+
+Keychron is the first major keyboard brand to fully open-source both its [firmware](https://github.com/Keychron/qmk_firmware) and [hardware design](https://github.com/Keychron/Keychron-Keyboards-Hardware-Design). We believe you should be able to see, verify, and modify every line of code that runs on your keyboard. Open source means full transparency — no black boxes between you and your hardware.
+
+We also want to build something bigger than what any single company can do alone. By opening our firmware to the community, developers and enthusiasts can push what keyboards are capable of — custom keymaps, new features, creative workflows — and those contributions make every Keychron keyboard better for everyone.
 
 ## Features
 
