@@ -77,6 +77,8 @@ For PCB files, schematics, and hardware design resources, see the companion repo
 
 ## Community and Support
 
+- **Join the community**  
+  Join the [Keychron Discord](https://discord.com/invite/HAYbRrTsjN) to share builds, ask questions, and help grow the hardware modding community.
 - [Keychron Website](https://www.keychron.com)
 - [Keychron on Reddit](https://www.reddit.com/r/Keychron/)
 - [QMK Discord](https://discord.gg/qmk)
