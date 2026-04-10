@@ -30,9 +30,9 @@ See the [build environment setup](https://docs.qmk.fm/#/getting_started_build_to
 
 If you just want to remap keys, configure layers, or change lighting, you don't need to build firmware:
 
-1. Open [Keychron Launcher](https://launcher.keychron.com/) in your browser
+1. Open [Keychron Launcher](https://launcher.keychron.com/) in a Chromium-based browser such as Google Chrome, Microsoft Edge, Brave, Opera, or Vivaldi
 2. Connect your Keychron keyboard via USB
 3. Remap keys, configure layers, and adjust lighting - changes apply instantly
 
-Keychron Launcher works out of the box with no JSON import required, providing a simpler browser-based setup flow for supported boards.
+Keychron Launcher works out of the box with no JSON import required, providing a simpler browser-based setup flow for supported boards. Safari and other non-Chromium browsers will not work with Keychron Launcher.
 
