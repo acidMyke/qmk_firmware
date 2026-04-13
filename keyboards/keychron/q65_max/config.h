@@ -1,4 +1,4 @@
-/* Copyright 2023 @ Keychron (https://www.keychron.com)
+/* Copyright 2024 ~ 2026 @ Keychron (https://www.keychron.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,9 +16,28 @@
 
 #pragma once
 
+#include "eeconfig_kb.h"
+
 /* Encoder Configuration */
 #define ENCODER_DEFAULT_POS 0x3
 #define ENCODER_MAP_KEY_DELAY 2
+
+/* SPI configuration */
+#if defined(RGB_MATRIX_ENABLE) || defined(LK_WIRELESS_ENABLE)
+#    define SPI_DRIVER SPID1
+#    define SPI_SCK_PIN A5
+#    define SPI_MISO_PIN A6
+#    define SPI_MOSI_PIN A7
+#endif
+
+/* SNLED27351 Driver Configuration */
+#if defined(RGB_MATRIX_ENABLE)
+#    define SNLED27351_SDB_PIN B7
+#    define SNLED27351_SELECT_PINS \
+        { B9, B8 }
+#    define SNLED27351_SPI_DIVISOR 16
+#    define SNLED27351_PHASE_CHANNEL SNLED27351_SCAN_PHASE_9_CHANNEL
+#endif
 
 #ifdef LK_WIRELESS_ENABLE
 /* Hardware configuration */
@@ -37,7 +56,7 @@
 
 #    define BT_HOST_DEVICES_COUNT 3
 
-#    if defined(RGB_MATRIX_ENABLE) || defined(LED_MATRIX_ENABLE)
+#    if defined(RGB_MATRIX_ENABLE)
 
 #        define SNLED27351_SDB_PIN B7
 
@@ -49,11 +68,8 @@
 #        define BAT_LEVEL_LED_LIST \
             { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }
 
-
-
 /* Reinit LED driver on tranport changed */
 #        define LED_DRIVER_REINIT_ON_TRANSPORT_CHANGE
-
 #    endif
 
 /* Keep USB connection in wireless mode */
@@ -68,4 +84,3 @@
 #define FN_KEY_1 MO(2)
 #define FN_KEY_2 MO(3)
 #define FN_KEY_3 MO(4)
-

@@ -1,4 +1,4 @@
-/* Copyright 2023 @ Keychron (https://www.keychron.com)
+/* Copyright 2024 ~ 2026 @ Keychron (https://www.keychron.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,6 +41,7 @@ const snled27351_led_t g_snled27351_leds[RGB_MATRIX_LED_COUNT] = {
     {0, CB1_CA3,    CB3_CA3,    CB2_CA3},
     {0, CB1_CA2,    CB3_CA2,    CB2_CA2},
     {0, CB1_CA1,    CB3_CA1,    CB2_CA1},
+
     {0, CB4_CA16,   CB6_CA16,   CB5_CA16},
     {0, CB4_CA15,   CB6_CA15,   CB5_CA15},
     {0, CB4_CA14,   CB6_CA14,   CB5_CA14},
@@ -57,6 +58,7 @@ const snled27351_led_t g_snled27351_leds[RGB_MATRIX_LED_COUNT] = {
     {0, CB4_CA3,    CB6_CA3,    CB5_CA3},
     {0, CB4_CA2,    CB6_CA2,    CB5_CA2},
     {0, CB4_CA1,    CB6_CA1,    CB5_CA1},
+
     {1, CB1_CA16,   CB3_CA16,   CB2_CA16},
     {1, CB1_CA15,   CB3_CA15,   CB2_CA15},
     {1, CB1_CA14,   CB3_CA14,   CB2_CA14},
@@ -72,6 +74,7 @@ const snled27351_led_t g_snled27351_leds[RGB_MATRIX_LED_COUNT] = {
     {1, CB1_CA4,    CB3_CA4,    CB2_CA4},
     {1, CB1_CA3,    CB3_CA3,    CB2_CA3},
     {1, CB1_CA2,    CB3_CA2,    CB2_CA2},
+
     {1, CB7_CA16,   CB9_CA16,   CB8_CA16},
     {1, CB7_CA15,   CB9_CA15,   CB8_CA15},
     {1, CB7_CA13,   CB9_CA13,   CB8_CA13},
@@ -87,6 +90,7 @@ const snled27351_led_t g_snled27351_leds[RGB_MATRIX_LED_COUNT] = {
     {1, CB7_CA3,    CB9_CA3,    CB8_CA3},
     {1, CB7_CA2,    CB9_CA2,    CB8_CA2},
     {1, CB7_CA1,    CB9_CA1,    CB8_CA1},
+
     {1, CB4_CA16,   CB6_CA16,   CB5_CA16},
     {1, CB4_CA15,   CB6_CA15,   CB5_CA15},
     {1, CB4_CA14,   CB6_CA14,   CB5_CA14},

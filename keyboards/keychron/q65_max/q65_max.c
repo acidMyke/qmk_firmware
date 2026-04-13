@@ -1,4 +1,4 @@
-/* Copyright 2023 @ Keychron (https://www.keychron.com)
+/* Copyright 2024 ~ 2026 @ Keychron (https://www.keychron.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,19 +14,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "quantum.h"
-#include "keychron_task.h"
-#include "keychron_common.h"
-#ifdef FACTORY_TEST_ENABLE
-#    include "factory_test.h"
-#    include "backlit_indicator.h"
-#endif
-#ifdef LK_WIRELESS_ENABLE
-#    include "lkbt51.h"
-#    include "wireless.h"
-#    include "keychron_wireless_common.h"
-#    include "battery.h"
-#endif
+#include "keychron.h"
 
 #ifdef DIP_SWITCH_ENABLE
 bool dip_switch_update_kb(uint8_t index, bool active) {
@@ -40,18 +28,7 @@ bool dip_switch_update_kb(uint8_t index, bool active) {
 #endif
 
 void keyboard_post_init_kb(void) {
-#ifdef LK_WIRELESS_ENABLE
-    palSetLineMode(P24G_MODE_SELECT_PIN, PAL_MODE_INPUT);
-    palSetLineMode(BT_MODE_SELECT_PIN, PAL_MODE_INPUT);
-
-    lkbt51_init(false);
-    wireless_init();
-#endif
-
-#ifdef ENCODER_ENABLE
-    encoder_cb_init();
-#endif
-
+    keychron_common_init();
     keyboard_post_init_user();
 }
 
