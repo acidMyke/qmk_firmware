@@ -15,28 +15,19 @@
  */
 
 #pragma once
-
 #include "eeconfig_kb.h"
 
-/* Encoder Configuration */
-#define ENCODER_DEFAULT_POS 0x3
-#define ENCODER_MAP_KEY_DELAY 2
-
 /* SPI configuration */
-#if defined(RGB_MATRIX_ENABLE) || defined(LK_WIRELESS_ENABLE)
+#if defined(RGB_MATRIX_ENABLE) || defined(LED_MATRIX_ENABLE) || defined(LK_WIRELESS_ENABLE)
 #    define SPI_DRIVER SPID1
 #    define SPI_SCK_PIN A5
 #    define SPI_MISO_PIN A6
 #    define SPI_MOSI_PIN A7
 #endif
 
-/* SNLED27351 Driver Configuration */
-#if defined(RGB_MATRIX_ENABLE)
+#if defined(RGB_MATRIX_ENABLE) || defined(LED_MATRIX_ENABLE)
 #    define SNLED27351_SDB_PIN B7
-#    define SNLED27351_SELECT_PINS \
-        { B8, B9 }
 #    define SNLED27351_SPI_DIVISOR 16
-#    define SNLED27351_PHASE_CHANNEL SNLED27351_SCAN_PHASE_9_CHANNEL
 #endif
 
 #ifdef LK_WIRELESS_ENABLE
@@ -54,9 +45,12 @@
 #    define BAT_CHARGING_PIN B13
 #    define BAT_CHARGING_LEVEL 0
 
+#    define BAT_LOW_LED_PIN B12
+#    define BAT_LOW_LED_PIN_ON_STATE 1
+
 #    define BT_HOST_DEVICES_COUNT 3
 
-#    if defined(RGB_MATRIX_ENABLE)
+#    if defined(RGB_MATRIX_ENABLE) || defined(LED_MATRIX_ENABLE)
 
 #        define BT_INDCATION_LED_MATRIX_LIST \
             { 17, 18, 19 }
@@ -68,6 +62,7 @@
 
 /* Reinit LED driver on tranport changed */
 #        define LED_DRIVER_REINIT_ON_TRANSPORT_CHANGE
+
 #    endif
 
 /* Keep USB connection in wireless mode */
@@ -76,8 +71,6 @@
 /* Enable wireless NKRO */
 #    define WIRELESS_NKRO_ENABLE
 
-/* Don’t clear 2.4G pairing info on factory reset. */
-#    define P2P4G_CELAR_MASK 0
 #endif
 
 /* Factory test keys */
