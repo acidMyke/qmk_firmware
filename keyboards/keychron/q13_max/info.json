@@ -36,7 +36,7 @@
             }
         ]
     },
-    "dip_switch" :{
+    "dip_switch": {
         "pins": ["A8"]
     },
     "rgb_matrix": {
