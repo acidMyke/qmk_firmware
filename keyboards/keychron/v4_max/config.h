@@ -1,4 +1,4 @@
-/* Copyright 2024 ~ 2025 @ Keychron (https://www.keychron.com)
+/* Copyright 2024 ~ 2026 @ Keychron (https://www.keychron.com)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,14 +61,6 @@
 
 #    if defined(RGB_MATRIX_ENABLE)
 
-#        define BT_INDCATION_LED_MATRIX_LIST \
-            { 15, 16, 17 }
-
-#        define P24G_INDICATION_LED_INDEX 18
-
-#        define BAT_LEVEL_LED_LIST \
-            { 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 }
-
 /* Reinit LED driver on tranport changed */
 #        define LED_DRIVER_REINIT_ON_TRANSPORT_CHANGE
 #    endif
@@ -84,6 +76,10 @@
 #endif
 
 /* Factory test keys */
-#define FN_KEY_1 MO(1)
-#define FN_KEY_2 MO(3)
-#define FN_BL_TRIG_KEY KC_END
+#define FN_KEY_1 MO(4)
+#define BL_CYCLE_KEY KC_C
+#define BL_TRIG_KEY KC_L
+
+/* Retail demo keys */
+#define RETAIL_DEMO_KEY_1 KC_D
+#define RETAIL_DEMO_KEY_2 KC_E
