@@ -26,6 +26,7 @@ enum {
     SS_SYSTEM = SAFE_RANGE_AFTER_SS_PASS,
     CTL_F,
     CTL_G,
+    RGB_VAL,
 };
 
 // Tap dance definitions
@@ -157,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Function layer 3 (F13-24 keys)
     [_FN3] = LAYOUT_ansi_69(
         KC_TILD, SS_PASS_1, SS_PASS_2, SS_PASS_3, SS_PASS_4, SS_PASS_5, SS_PASS_6, SS_PASS_7, SS_PASS_8, SS_PASS_9, SS_PASS_0, RM_SPDD,  RM_SPDU,  _______,          UG_TOGG,
-        _______, BT_HST1,   BT_HST2,   BT_HST3,   P2P4G,     _______,   RM_NEXT,   KC_P4,     KC_P5,     KC_P6,     KC_PPLS,   _______,  _______,  _______,          _______,
+        RGB_VAL, BT_HST1,   BT_HST2,   BT_HST3,   P2P4G,     _______,   RM_NEXT,   KC_P4,     KC_P5,     KC_P6,     KC_PPLS,   _______,  _______,  _______,          _______,
         RM_ON,   RM_NEXT,   RM_HUEU,   RM_SATU,   RM_VALU,   RM_SPDU,              _______,   KC_P1,     KC_P2,     KC_P3,     KC_PENT,  _______,  _______,          _______,
         RM_OFF,             RM_PREV,   RM_HUED,   RM_SATD,   RM_VALD,   RM_SPDD,   _______,   TG(__NP),  KC_P0,     KC_COMM,   KC_DOT,   _______,  _______, _______,
         _______, _______,   KC_LALT,              _______,              _______,   _______,              KC_P0,                _______,            _______, _______, _______),
@@ -265,6 +266,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 
     switch (keycode) {
+        case RGB_VAL: 
+            if (!record->event.pressed) {
+                hsv_t current_hsv = rgb_matrix_get_hsv();
+                char hsv_str[32];
+                snprintf(hsv_str, sizeof(hsv_str), "hsv(%d, %d, %d)", current_hsv.h, current_hsv.s, current_hsv.v);
+                send_string(hsv_str);
+                return false;
+            }
+        break;
         case SS_SYSTEM: 
             if (!record->event.pressed) {
                 SEND_STRING_DELAY("SYSTEM", 10);
