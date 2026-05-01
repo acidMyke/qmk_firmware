@@ -143,18 +143,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL, KC_LWIN, KC_LALT,       LT_LSPC,       LT_FN1, LT_FN2,       LT_RSPC,          KC_RALT,          KC_LEFT, KC_DOWN, KC_RGHT),
     // Function layer 1 (VIM Nav & F1-12 keys)
     [_FN1] = LAYOUT_ansi_69(
-        KC_GRV,  KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,   _______,           KC_MPLY,
-        KC_TAB,  _______,  KC_UP,   _______, _______, _______,  C(KC_Y),  KC_UP,   _______, _______, _______, _______,  _______,  KC_PLUS,           KC_INS,
-        MT_ESC,  KC_LEFT,  KC_DOWN, KC_RGHT, MT_F,    MT_G,               KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,  _______,  KC_EQL,            _______,
-        KC_LSFT,           C(KC_Z), C(KC_X), C(KC_C), C(KC_V),  C(KC_B),  _______, _______, _______, KC_DOWN, _______,  _______,  _______, KC_PGUP,
-        KC_LCTL, KC_LWIN,  KC_LALT,          LT_LSPC,           LT_FN1,   LT_FN2,           LT_RSPC,          _______,            KC_HOME, KC_PGDN,  KC_END),
+        KC_GRV,  KC_F1,      KC_F2,   KC_F3,      KC_F4,   KC_F5,   KC_F6,    KC_F7,      KC_F8,      KC_F9,   KC_F10,  KC_F11,   KC_F12,   KC_BSPC,           KC_MPLY,
+        KC_TAB,  C(KC_LEFT), KC_UP,   C(KC_RGHT), KC_HOME, KC_END,  C(KC_Y),  C(KC_LEFT), C(KC_RGHT), KC_HOME, KC_END,  _______,  _______,  KC_PLUS,           KC_INS,
+        MT_ESC,  KC_LEFT,    KC_DOWN, KC_RGHT,    MT_F,    MT_G,              KC_LEFT,    KC_DOWN,    KC_UP,   KC_RGHT, _______,  _______,  KC_EQL,            _______,
+        KC_LSFT,             C(KC_Z), C(KC_X),    C(KC_C), C(KC_V), C(KC_B),  _______,    _______,    _______, KC_DOWN, _______,  _______,  _______, KC_PGUP,
+        KC_LCTL, KC_LWIN,    KC_LALT,             LT_LSPC,          LT_FN1,   LT_FN2,                 LT_RSPC,          _______,            KC_HOME, KC_PGDN,  KC_END),
     // Function layer 2 (RTL)
     [_FN2] = LAYOUT_ansi_69(
-        KC_GRV,  KC_F1,    KC_F2,   KC_F3,   KC_F4,    KC_F5,      KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,          C(A(KC_F22)),
-        KC_TAB,  _______,  KC_PGUP, _______, _______,  _______,    C(KC_Y),  KC_PGUP, _______, _______, _______, _______, _______, _______,          _______,
-        MT_ESC,  KC_HOME,  KC_PGDN, KC_END,  MT_F,     MT_G,                 KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, _______, _______,          _______,
-        _______,           C(KC_Z), C(KC_X), C(KC_T),  C(S(KC_O)), C(KC_P),  _______, _______, _______, KC_PGDN, _______, _______, _______, KC_PGUP,
-        _______, _______,  KC_LALT,          LT_LSPC,              LT_FN1,   LT_FN2,           LT_RSPC,          _______,          KC_HOME, KC_PGDN, KC_END),
+        KC_GRV,  KC_F1,   KC_F2,   KC_F3,    KC_F4,    KC_F5,      KC_F6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,     KC_F11,  KC_F12,  KC_BSPC,          C(A(KC_F22)),
+        KC_TAB,  KC_DLR,  KC_LBRC, KC_RBRC,  KC_PIPE,  KC_AMPR,    KC_CIRC,  KC_ASTR, KC_LPRN, KC_RPRN, KC_LCBR,    _______, _______, KC_PIPE,          _______,
+        MT_ESC,  KC_EXLM, KC_LT,   KC_GT,    KC_EQL,   KC_PLUS,              KC_UNDS, KC_PLUS, KC_LCBR, LGUI(KC_L), KC_COLN, KC_DQUO, _______,          _______,
+        _______,          KC_DOT,  KC_COMMA, KC_SCLN,  C(S(KC_O)), C(KC_P),  _______, _______, KC_GT,   KC_LT,      KC_QUES, _______, _______, KC_PGUP,
+        _______, _______, KC_LALT,           LT_LSPC,              LT_FN1,   LT_FN2,           LT_RSPC,             _______,          KC_HOME, KC_PGDN, KC_END),
     // Function layer 3 (F13-24 keys)
     [_FN3] = LAYOUT_ansi_69(
         KC_TILD, SS_PASS_1, SS_PASS_2, SS_PASS_3, SS_PASS_4, SS_PASS_5, SS_PASS_6, SS_PASS_7, SS_PASS_8, SS_PASS_9, SS_PASS_0, RM_SPDD,  RM_SPDU,  _______,          UG_TOGG,
@@ -193,16 +193,26 @@ int len_numpad_rgb = sizeof(numpad_rgb_idx) / sizeof(numpad_rgb_idx[0]);
 bool rgb_matrix_indicators_user() {
     uint8_t layer = biton32(default_layer_state);
     if (layer_state_is(_FN1) || layer == _FN1) {
-        rgb_matrix_set_color(34, DIM_RGB_SPRINGGREEN);
-        rgb_matrix_set_color(35, DIM_RGB_SPRINGGREEN);
-        for (int i = 36; i < 40; i++) 
-            rgb_matrix_set_color(i, DIM_RGB_CORAL);
-        rgb_matrix_set_color(22, DIM_RGB_CORAL); // U
-        rgb_matrix_set_color(53, DIM_RGB_CORAL); // ,
-        rgb_matrix_set_color(17, DIM_RGB_CORAL); // W
-        rgb_matrix_set_color(31, DIM_RGB_CORAL); // A
-        rgb_matrix_set_color(32, DIM_RGB_CORAL); // S
-        rgb_matrix_set_color(33, DIM_RGB_CORAL); // D
+        rgb_matrix_set_color(34, DIM_RGB_SPRINGGREEN); // F: LCTL
+        rgb_matrix_set_color(35, DIM_RGB_SPRINGGREEN); // G: LSFT
+
+        rgb_matrix_set_color(17, DIM_RGB_CYAN);   // W: UP
+        rgb_matrix_set_color(31, DIM_RGB_CYAN);   // A: LEFT
+        rgb_matrix_set_color(32, DIM_RGB_CYAN);   // S: DOWN
+        rgb_matrix_set_color(33, DIM_RGB_CYAN);   // D: RIGHT
+        rgb_matrix_set_color(36, DIM_RGB_CYAN);   // H: LEFT
+        rgb_matrix_set_color(37, DIM_RGB_CYAN);   // J: DOWN
+        rgb_matrix_set_color(38, DIM_RGB_CYAN);   // K: UP
+        rgb_matrix_set_color(39, DIM_RGB_CYAN);   // L: RIGHT
+
+        rgb_matrix_set_color(16, DIM_RGB_ORANGE);   // Q: C(LEFT)
+        rgb_matrix_set_color(18, DIM_RGB_ORANGE);   // E: C(RIGHT)
+        rgb_matrix_set_color(19, DIM_RGB_ORANGE);   // R: HOME
+        rgb_matrix_set_color(20, DIM_RGB_ORANGE);   // T: END
+        rgb_matrix_set_color(22, DIM_RGB_ORANGE);   // U: C(LEFT)
+        rgb_matrix_set_color(23, DIM_RGB_ORANGE);   // I: C(RIGHT)
+        rgb_matrix_set_color(24, DIM_RGB_ORANGE);   // O: HOME
+        rgb_matrix_set_color(25, DIM_RGB_ORANGE);   // P: END
     }
     
     if (layer_state_is(_FN2) || layer == _FN2) {
@@ -228,7 +238,7 @@ bool rgb_matrix_indicators_user() {
         }
     }
 
-    if (layer >= __NMT && layer <= _FN3) {
+    if (layer >= __NMT && layer <= __NP) {
         rgb_matrix_set_color(layer, DIM_RGB_TURQUOISE);
     }
     return false;

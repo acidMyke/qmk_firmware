@@ -1,8 +1,6 @@
 #pragma once
 
 #define TAPPING_TERM 200
-#define PERMISSIVE_HOLD
-#define QUICK_TAP_TERM 0 // Disables tap-and-hold repeat for mod-taps
 #define RGB_MATRIX_DEFAULT_HUE 179 // Sets the default hue value, if none has been set
 #define RGB_MATRIX_DEFAULT_SAT 224 // Sets the default saturation value, if none has been set
 #define RGB_MATRIX_DEFAULT_VAL 145
