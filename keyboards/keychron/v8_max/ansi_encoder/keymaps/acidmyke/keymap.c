@@ -162,11 +162,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RM_OFF,             RM_PREV,   RM_HUED,   RM_SATD,   RM_VALD,   RM_SPDD,   _______,   TG(__NP),  KC_P0,     KC_COMM,   KC_DOT,   _______,  _______, _______,
         _______, _______,   KC_LALT,              _______,              _______,   _______,              KC_P0,                _______,            _______, _______, _______),
     [__NP] = LAYOUT_ansi_69(
-        _______, _______, _______, _______, _______, _______, _______, KC_P7,   KC_P8,   KC_P9,   KC_P0,   KC_PMNS,  KC_PPLS,  KC_BSPC,          _______,
-        _______, _______, _______, _______, _______, _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, _______,  _______,  _______,          _______,
-        _______, _______, _______, _______, _______, _______,          _______, KC_P1,   KC_P2,   KC_P3,   KC_PENT,  _______,  KC_PENT,          _______,
-        _______,          _______, _______, _______, _______, _______, _______, KC_P0,   KC_P0,   KC_PCMM, KC_PDOT,  _______,   _______, _______,
-        _______, _______, _______,          _______,          _______, _______,          KC_P0,             _______,            _______, _______, _______)
+        _______, _______, _______, _______, _______, _______, _______, KC_P7,   KC_P8,    KC_P9,   KC_P0,   KC_PMNS,  KC_PPLS,  KC_BSPC,          _______,
+        _______, _______, _______, _______, _______, _______, _______, KC_P4,   KC_P5,    KC_P6,   KC_PPLS, _______,  _______,  _______,          _______,
+        _______, _______, _______, _______, _______, _______,          _______, KC_P1,    KC_P2,   KC_P3,   KC_PENT,  _______,  KC_PENT,          _______,
+        _______,          _______, _______, _______, _______, _______, _______, TG(__NP), KC_P0,   KC_P0,   KC_PDOT,  _______,   _______, _______,
+        _______, _______, _______,          _______,          _______, _______,           KC_P0,            _______,            _______, _______, _______)
     // [TEMPLATE] = LAYOUT_ansi_69(
     //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______,          _______,
     //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______,          _______,
@@ -185,7 +185,9 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [__NP]   = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)}
 };
 #endif // ENCODER_MAP_ENABLE
-uint8_t num_block_rgb[] = {7, 8, 9, 22, 23, 24, 25, 36, 37, 38, 39, 51, 52};
+
+uint8_t numpad_rgb_idx[] = {7, 8, 9, 10, 11, 12, 13, 22, 23, 24, 25, 37, 38, 39, 40, 42, 52, 53, 54, 64};
+int len_numpad_rgb = sizeof(numpad_rgb_idx) / sizeof(numpad_rgb_idx[0]); 
 
 bool rgb_matrix_indicators_user() {
     uint8_t layer = biton32(default_layer_state);
@@ -220,8 +222,8 @@ bool rgb_matrix_indicators_user() {
     }
     
     if (layer_state_is(__NP) || layer == __NP || layer_state_is(_FN3) || layer == _FN3) {
-        for (int i = 0; i < 13; i++) {
-            rgb_matrix_set_color(num_block_rgb[i], DIM_RGB_GOLD);
+        for (int i = 0; i < len_numpad_rgb; i++) {
+            rgb_matrix_set_color(numpad_rgb_idx[i], DIM_RGB_GOLD);
         }
     }
 
