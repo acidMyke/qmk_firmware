@@ -44,7 +44,8 @@ enum layers{
     __MT,
     _FN1,
     _FN2,
-    _FN3
+    _FN3,
+    __NP
 };
 
 // Taps (Mod Tap & Layer Tap)
@@ -156,10 +157,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // Function layer 3 (F13-24 keys)
     [_FN3] = LAYOUT_ansi_69(
         KC_TILD, SS_PASS_1, SS_PASS_2, SS_PASS_3, SS_PASS_4, SS_PASS_5, SS_PASS_6, SS_PASS_7, SS_PASS_8, SS_PASS_9, SS_PASS_0, RM_SPDD,  RM_SPDU,  _______,          UG_TOGG,
-        RM_ON,   BT_HST1,   BT_HST2,   BT_HST3,   P2P4G,     RM_SPDU,   RM_NEXT,   RM_HUEU,   RM_SATU,   RM_VALU,   _______,   _______,  _______,  _______,          _______,
-        RM_OFF,  _______,   _______,   _______,   _______,   RM_SPDD,              RM_PREV,   RM_HUED,   RM_SATD,   RM_VALD,   _______,  _______,  _______,          _______,
-        _______,            _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,  _______,  _______, _______,
-        _______, _______,   KC_LALT,              _______,              _______,   _______,              _______,              _______,            _______, _______, _______)
+        _______, BT_HST1,   BT_HST2,   BT_HST3,   P2P4G,     _______,   RM_NEXT,   KC_P4,     KC_P5,     KC_P6,     KC_PPLS,   _______,  _______,  _______,          _______,
+        RM_ON,   RM_NEXT,   RM_HUEU,   RM_SATU,   RM_VALU,   RM_SPDU,              _______,   KC_P1,     KC_P2,     KC_P3,     KC_PENT,  _______,  _______,          _______,
+        RM_OFF,             RM_PREV,   RM_HUED,   RM_SATD,   RM_VALD,   RM_SPDD,   _______,   TG(__NP),  KC_P0,     KC_COMM,   KC_DOT,   _______,  _______, _______,
+        _______, _______,   KC_LALT,              _______,              _______,   _______,              KC_P0,                _______,            _______, _______, _______),
+    [__NP] = LAYOUT_ansi_69(
+        _______, _______, _______, _______, _______, _______, _______, KC_P7,   KC_P8,   KC_P9,   KC_P0,   KC_PMNS,  KC_PPLS,  KC_BSPC,          _______,
+        _______, _______, _______, _______, _______, _______, _______, KC_P4,   KC_P5,   KC_P6,   KC_PPLS, _______,  _______,  _______,          _______,
+        _______, _______, _______, _______, _______, _______,          _______, KC_P1,   KC_P2,   KC_P3,   KC_PENT,  _______,  KC_PENT,          _______,
+        _______,          _______, _______, _______, _______, _______, _______, KC_P0,   KC_P0,   KC_PCMM, KC_PDOT,  _______,   _______, _______,
+        _______, _______, _______,          _______,          _______, _______,          KC_P0,             _______,            _______, _______, _______)
     // [TEMPLATE] = LAYOUT_ansi_69(
     //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______,          _______,
     //     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______,  _______,          _______,
@@ -174,9 +181,11 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [__MT]   = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [_FN1]   = {ENCODER_CCW_CW(KC_MPRV, KC_MNXT)},
     [_FN2]   = {ENCODER_CCW_CW(C(S(KC_F22)), C(KC_F22))},
-    [_FN3]   = {ENCODER_CCW_CW(RM_VALD, RM_VALU)}
+    [_FN3]   = {ENCODER_CCW_CW(RM_VALD, RM_VALU)},
+    [__NP]   = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU)}
 };
 #endif // ENCODER_MAP_ENABLE
+uint8_t num_block_rgb[] = {7, 8, 9, 22, 23, 24, 25, 36, 37, 38, 39, 51, 52};
 
 bool rgb_matrix_indicators_user() {
     uint8_t layer = biton32(default_layer_state);
@@ -209,6 +218,12 @@ bool rgb_matrix_indicators_user() {
         rgb_matrix_set_color(48, DIM_RGB_MAGENTA); // V
         rgb_matrix_set_color(49, DIM_RGB_MAGENTA); // B 
     }
+    
+    if (layer_state_is(__NP) || layer == __NP || layer_state_is(_FN3) || layer == _FN3) {
+        for (int i = 0; i < 13; i++) {
+            rgb_matrix_set_color(num_block_rgb[i], DIM_RGB_GOLD);
+        }
+    }
 
     if (layer >= __NMT && layer <= _FN3) {
         rgb_matrix_set_color(layer, DIM_RGB_TURQUOISE);
@@ -221,6 +236,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (!process_record_keychron_common(keycode, record)) {
         return false;
+    }
+
+    if (current_layer == __NP && record->event.pressed) {
+        switch (keycode) {
+            // Keys that are ALLOWED to stay on the Numpad layer
+            case KC_P1 ... KC_P0:
+            case KC_PDOT:
+            case KC_PCMM:
+            case KC_PMNS:
+            case KC_PPLS:
+            case KC_PENT:
+            case KC_BSPC:
+                return true; // Process normally
+            
+            // Any other key will kick you back to the main layer
+            default:
+                layer_off(__NP);
+                layer_on(__MT);
+                return true; 
+        }
     }
 
     if (!process_record_password(keycode, record)) {
